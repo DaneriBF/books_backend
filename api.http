@@ -1,0 +1,2 @@
+### Recuperar todos los libros
+GET http://localhost:3000/books/
