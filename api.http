@@ -1,2 +1,9 @@
 ### Recuperar todos los libros
 GET http://localhost:3000/books/
+
+### Recuperar información sobre un libro y sus autores
+GET http://localhost:3000/books/authors/8
+
+
+### Recuperar todos los usuario del sistema
+GET http://localhost:3000/users/
