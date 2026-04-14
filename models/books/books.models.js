@@ -33,4 +33,17 @@ export class booksModel {
     return books;
   }
 
+  static getBooksByPublicationYear = async (publicationYear) => {
+    const db = await pool;
+
+    const result = await db.request()
+    .input('year', publicationYear)
+    .query(
+      `
+      SELECT * FROM [Catalog].fnSearchBooksByPublicationYear(@year);
+      `
+    );
+
+    return result.recordset;
+  }
 }

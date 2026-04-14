@@ -22,4 +22,16 @@ export class booksController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  static async getBooksByPublicationYear(req, res){
+    try {
+      const { publicationYear } = req.params;
+
+      const data = await booksModel.getBooksByPublicationYear(publicationYear);
+
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 }

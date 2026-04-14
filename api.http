@@ -5,5 +5,11 @@ GET http://localhost:3000/books/
 GET http://localhost:3000/books/authors/8
 
 
+### Recuperar información sobre libros que se hayan publicado despues del parametro enviado
+GET http://localhost:3000/books/publicationYear/1500
+
+
+
+
 ### Recuperar todos los usuario del sistema
 GET http://localhost:3000/users/
