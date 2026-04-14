@@ -10,6 +10,9 @@ const PORT = process.env.PORT ?? 1234;
 app.use(json());
 app.disable('x-powered-by');
 
+app.use('/session/', () => {
+  console.log('gestionando las sesiones')
+})
 app.use('/books/', booksRouter);
 app.use('/users/', usersRouter);
 
