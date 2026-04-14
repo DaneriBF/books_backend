@@ -1,17 +1,47 @@
 ### Recuperar todos los libros
 GET http://localhost:3000/books/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJib2IuZXNwb25qYUBtYWlsLmNvbSIsImlhdCI6MTc3NjE5NzYxMSwiZXhwIjoxNzc2MTk3NjcxfQ.8OpgPaIX7lnmjHXcG4q2NknGptK9qNVGc0TNKpPKQRQ
+
 
 ### Recuperar información sobre un libro y sus autores
 GET http://localhost:3000/books/authors/8
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
 
 ### Recuperar información sobre libros que se hayan publicado despues del parametro enviado
 GET http://localhost:3000/books/publicationYear/1500
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
 
+### Crear un nuevo libro
+POST http://localhost:3000/books/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
+Content-Type: application/json
+
+{
+  "title": "The Mist",
+  "publicationYear": "1985"
+}
 
 
 
 ### Recuperar todos los usuario del sistema
 GET http://localhost:3000/users/
 
+### Crear un nuevo usuario
+POST http://localhost:3000/users/
+Content-Type: application/json
 
+{
+  "name": "Bob Esponja",
+  "idRole": 1,
+  "email": "bob.esponja@mail.com",
+  "password": "passB"
+}
+
+### Login
+POST  http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "userEmail": "bob.esponja@mail.com",
+  "userPassword": "passB"
+}

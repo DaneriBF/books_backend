@@ -37,12 +37,23 @@ export class booksModel {
     const db = await pool;
 
     const result = await db.request()
-    .input('year', publicationYear)
-    .query(
-      `
+      .input('year', publicationYear)
+      .query(
+        `
       SELECT * FROM [Catalog].fnSearchBooksByPublicationYear(@year);
       `
-    );
+      );
+
+    return result.recordset;
+  }
+
+  static postNewBook = async (title, publicationYear) => {
+    const db = await pool;
+
+    const result = await db.request()
+      .input('title', title)
+      .input('publicationYear', publicationYear)
+      .execute('[Catalog].splInsertBook');
 
     return result.recordset;
   }

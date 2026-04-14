@@ -34,4 +34,16 @@ export class booksController {
       res.status(500).json({ error: error.message });
     }
   }
+
+  static async postNewBook(req, res){
+    try {
+      const { title, publicationYear} = req.body;
+
+      const data = await booksModel.postNewBook(title, publicationYear);
+
+      res.status(201).json(data);
+    } catch {
+
+    }
+  }
 }
