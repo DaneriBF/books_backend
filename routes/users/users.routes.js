@@ -5,3 +5,4 @@ export const usersRouter = Router();
 
 usersRouter.get('/', userController.getAllUsers);
 usersRouter.post('/', userController.postNewUser);
+usersRouter.patch('/', userController.patchUser);

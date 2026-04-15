@@ -4,7 +4,7 @@ export class booksController {
   static async getAllBooks(req, res) {
     try {
       const data = await booksModel.getAllBooks();
-      
+
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
@@ -16,14 +16,23 @@ export class booksController {
       const { bookId } = req.params;
 
       const data = await booksModel.getAuthorsBookById(bookId);
-      
-      res.status(200).json(data);
+
+      const processedData = data.map(b => ({
+        idBook: b.idBook,
+        title: b.title,
+        publicationYear: b.publicationYear,
+        authors: JSON.parse(b.authors)
+      }));
+
+      console.log(processedData);
+
+      res.status(200).json(processedData);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   }
 
-  static async getBooksByPublicationYear(req, res){
+  static async getBooksByPublicationYear(req, res) {
     try {
       const { publicationYear } = req.params;
 
@@ -35,9 +44,9 @@ export class booksController {
     }
   }
 
-  static async postNewBook(req, res){
+  static async postNewBook(req, res) {
     try {
-      const { title, publicationYear} = req.body;
+      const { title, publicationYear } = req.body;
 
       const data = await booksModel.postNewBook(title, publicationYear);
 

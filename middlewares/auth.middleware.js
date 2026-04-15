@@ -14,11 +14,11 @@ export const authMiddleware = async (req, res, next) => {
 
   try {
     const decoded = verifyToken(token);
-    console.log("Token decodificado: ", decoded)
+    // console.log("Token decodificado: ", decoded)
 
-    console.log("Id recuperado del token: ", decoded.id)
+    // console.log("Id recuperado del token: ", decoded.id)
     const user = await authModel.getUserById(decoded.id);
-    console.log("El usuario retornado: ", user)
+    // console.log("El usuario retornado: ", user)
 
     if (!user) {
       return res.status(401).json({ message: 'Usuario no existe' });

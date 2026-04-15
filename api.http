@@ -1,11 +1,26 @@
+###--------------------------------------------------
+# AQUÍ INICIAN LOS ENDPOINTS DEL INICIO DE SESIÓN
+
+### Login
+POST  http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "userEmail": "royer.b@mail.com",
+  "userPassword": "passRoye"
+}
+
+###---------------------------------------------
+# AQUÍ INICIAN LOS ENDPOINTS DE SOBRE EL RECURSO DE LIBROS
+
 ### Recuperar todos los libros
 GET http://localhost:3000/books/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiZW1haWwiOiJib2IuZXNwb25qYUBtYWlsLmNvbSIsImlhdCI6MTc3NjE5NzYxMSwiZXhwIjoxNzc2MTk3NjcxfQ.8OpgPaIX7lnmjHXcG4q2NknGptK9qNVGc0TNKpPKQRQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2MjgzMDAzLCJleHAiOjE3NzYyODMzMDN9.OmmunFb8o8eU5Re99BomsgETsay9rsy4hUK_e63otdU
 
 
 ### Recuperar información sobre un libro y sus autores
 GET http://localhost:3000/books/authors/8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2MjgzMDAzLCJleHAiOjE3NzYyODMzMDN9.OmmunFb8o8eU5Re99BomsgETsay9rsy4hUK_e63otdU
 
 ### Recuperar información sobre libros que se hayan publicado despues del parametro enviado
 GET http://localhost:3000/books/publicationYear/1500
@@ -13,15 +28,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiO
 
 ### Crear un nuevo libro
 POST http://localhost:3000/books/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
+//Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhbmEubG9wZXpAbWFpbC5jb20iLCJpYXQiOjE3NzYxOTQ0MzgsImV4cCI6MTc3NjE5ODAzOH0.x36a3611Lt0OA-YhIJZgWTvjQx6mpq6XgpmDcGTBNWA
 Content-Type: application/json
 
 {
-  "title": "The Mist",
-  "publicationYear": "1985"
+  "title": "The shining",
+  "publicationYear": "1977"
 }
 
-
+### ---------------------------------------
+# AQUÍ INICIAN LOS ENDPOINTS DE SOBRE EL RECURSO DE USUARIOS
 
 ### Recuperar todos los usuario del sistema
 GET http://localhost:3000/users/
@@ -31,17 +47,18 @@ POST http://localhost:3000/users/
 Content-Type: application/json
 
 {
-  "name": "Bob Esponja",
+  "userName": "Bob Esponja",
   "idRole": 1,
-  "email": "bob.esponja@mail.com",
-  "password": "passB"
+  "userEmail": "bob.esponja@mail.com",
+  "userPassword": "passB"
 }
 
-### Login
-POST  http://localhost:3000/auth/login
+### Actualizar la contraseña de un usuario
+PATCH http://localhost:3000/users/
 Content-Type: application/json
 
 {
   "userEmail": "bob.esponja@mail.com",
-  "userPassword": "passB"
+  "userNewPassword": "passBo"
 }
+

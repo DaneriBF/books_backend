@@ -14,12 +14,27 @@ export class userController {
   static async postNewUser(req, res) {
     try {
       console.log(req.body)
-      const { name, idRole, email, password } = req.body;
-      const data = await usersModel.postCreateUser(name, idRole, email, password);
+      const { userName, idRole, userEmail, userPassword } = req.body;
+      const data = await usersModel.postCreateUser(userName, idRole, userEmail, userPassword);
+
+      if (!data) {
+        throw new Error('Ya existe un usuario con este correo electrónico');
+      }
 
       res.status(201).json(data);
     } catch (error) {
-      res.status(404).json({ error: error.message });
+      res.status(409).json({ error: error.message });
+    }
+  }
+
+  static async patchUser(req, res) {
+    try {
+      const { userEmail, userNewPassword } = req.body;
+      const data = await usersModel.patchUser(userEmail, userNewPassword);
+
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(409).json({ error: error.message })
     }
   }
 }

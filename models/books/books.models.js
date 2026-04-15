@@ -23,14 +23,7 @@ export class booksModel {
       SELECT * FROM [Catalog].fnSearchAuthorsBookById(@idBook);
     `);
 
-    const books = result.recordset.map(b => ({
-      idBook: b.idBook,
-      title: b.title,
-      publicationYear: b.publicationYear,
-      authors: JSON.parse(b.authors)
-    }));
-
-    return books;
+    return result.recordset;
   }
 
   static getBooksByPublicationYear = async (publicationYear) => {

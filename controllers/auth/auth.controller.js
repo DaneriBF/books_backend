@@ -1,5 +1,4 @@
 import { authService } from "../../services/auth/auth.services.js";
-import { authModel } from "../../models/auth/auth.models.js";
 
 export class authController {
   static async loginUser(req, res) {
@@ -8,7 +7,7 @@ export class authController {
 
       const data = await authService.loginUser(userEmail, userPassword);
       //const data = await authModel.loginUser(userEmail, userPassword);
-      //console.log(res.status(200).json(data));
+      // console.log("Esto se saco del controller ", res.status(200).json(data));      
       res.status(200).json(data);
     } catch (error) {
       res.status(500).json({ error: error.message });
