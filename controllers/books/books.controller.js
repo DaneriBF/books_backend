@@ -52,7 +52,29 @@ export class booksController {
 
       res.status(201).json(data);
     } catch {
+      res.status(500).json({ error: error.message });
+    }
+  }
 
+  static async getPaginatedAuthors(req, res) {
+    try {
+      const { pageSize, pageNumber } = req.params;
+
+      const data = await booksModel.getPaginatedAuthors(pageSize, pageNumber);
+
+      res.status(200).json(data);
+    } catch {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  static async getTotalAuthors(req, res){
+    try {
+      const data = await booksModel.getTotalAuthors();
+
+      res.status(200).json(data);
+    } catch {
+      res.status(500).json({ error: error.message });
     }
   }
 }

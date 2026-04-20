@@ -12,6 +12,9 @@ booksRouter.get('/', booksController.getAllBooks);
 booksRouter.get('/authors/:bookId', booksController.getAuthorsBookById);
 booksRouter.get('/publicationYear/:publicationYear', booksController.getBooksByPublicationYear)
 
+booksRouter.get('/totalAuthors', booksController.getTotalAuthors);
+booksRouter.get('/authors/:pageSize/:pageNumber', booksController.getPaginatedAuthors);
+
 booksRouter.post('/', booksController.postNewBook);
 
 

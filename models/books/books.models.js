@@ -50,4 +50,32 @@ export class booksModel {
 
     return result.recordset;
   }
+
+  static getPaginatedAuthors = async (pageSize, pageNumber) => {
+    const db = await pool;
+
+    const result = await db.request()
+      .input('pageSize', pageSize)
+      .input('pageNumber', pageNumber)
+      .query(
+        `
+        SELECT * FROM [Catalog].fnShowAuthorsPaginated(@pageSize, @pageNumber);
+        `
+      );
+
+    return result.recordset;
+  }
+
+  static getTotalAuthors = async () => {
+    const db = await pool;
+
+    const result = await db.request()
+    .query(
+      `
+        SELECT COUNT(*) AS totalAuthors FROM [Catalog].tblAuthors;
+      `
+    );
+
+    return result.recordset;
+  }
 }

@@ -15,8 +15,15 @@ Content-Type: application/json
 
 ### Recuperar todos los libros
 GET http://localhost:3000/books/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2MjgzMzAwLCJleHAiOjE3NzYyODM2MDB9.fjAwNTYpc6Cf4GqZv2U3EahQs_HswqYEAG8N6snJkIM
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2NzA4MDM5LCJleHAiOjE3NzY3MDk4Mzl9.soHMik29XwGYWrS7zCZsHazyUf52AOgFjkCkCXMGuTY
 
+### Recuperar el total de Autores registrados
+GET http://localhost:3000/books/totalAuthors
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2NzEzMjMzLCJleHAiOjE3NzY3MTY4MzN9.fZgrmc8vsD0UV5tIDNMaXooCtkZFk_mRiZvR4FEF9Ik
+
+### Recuperar todos los Autores paginados
+GET http://localhost:3000/books/authors/10/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwiZW1haWwiOiJyb3llci5iQG1haWwuY29tIiwiaWF0IjoxNzc2NzEzMjMzLCJleHAiOjE3NzY3MTY4MzN9.fZgrmc8vsD0UV5tIDNMaXooCtkZFk_mRiZvR4FEF9Ik
 
 ### Recuperar información sobre un libro y sus autores
 GET http://localhost:3000/books/authors/8
